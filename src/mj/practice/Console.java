@@ -3,6 +3,11 @@ package mj.practice;
 import java.util.Scanner;
 
 public class Console {
+    public static void main(String[] args) {
+        Console console = new Console();
+        console.runConsole();
+    }
+
     private void runConsole(){
         String command;
 
