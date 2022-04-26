@@ -1,13 +1,14 @@
 package mj.practice.Interface;
 
-import mj.practice.TaskDto;
+import mj.practice.Category;
+import mj.practice.Task;
 
 import java.util.List;
 
 public interface ITaskRepository {
-    List<TaskDto> findAllByCompletedFalse();
-    List<TaskDto> findAllByCategoryAndCompletedFalse(TaskDto task);
-    TaskDto save(TaskDto task);
-    TaskDto update(TaskDto task);
-    TaskDto delete(TaskDto task);
+    List<Task> findAllByCompletedFalse();
+    List<Task> findAllByCategoryAndCompletedFalse(Integer categoryId);
+    Task save(Integer categoryId, Task task);
+    Task update(Integer categoryId, Task task);
+    Task delete(Integer categoryId, Task task);
 }

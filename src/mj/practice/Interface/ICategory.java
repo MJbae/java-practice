@@ -11,9 +11,5 @@ public interface ICategory {
 
     int getId();
     String getTitle();
-    List<TaskDto> getTasks();
-    TaskDto addTask();
-    TaskDto updateTask();
-    TaskDto removeTask();
 }
 

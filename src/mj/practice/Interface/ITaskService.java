@@ -1,13 +1,14 @@
 package mj.practice.Interface;
 
-import mj.practice.TaskDto;
+import mj.practice.Category;
+import mj.practice.Task;
 
 import java.util.List;
 
 public interface ITaskService {
-    List<TaskDto> showAll();
-    List<TaskDto> showBy(TaskDto task);
-    TaskDto create(TaskDto task);
-    TaskDto update(TaskDto task);
-    TaskDto delete(TaskDto task);
+    List<Task> showAll();
+    List<Task> showBy(Integer categoryId);
+    Task create(Integer categoryId, Task task);
+    Task update(Integer categoryId, Task task);
+    Task delete(Integer categoryId, Task task);
 }
