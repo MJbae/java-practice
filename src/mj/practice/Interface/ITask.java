@@ -12,13 +12,12 @@ public interface ITask {
     void setDate(LocalDate date);
     void setTime(LocalTime time);
     void setContent(String content);
+    void complete();
 
     int getId();
     String getTitle();
     LocalDate getDate();
     LocalTime getTime();
     String getContent();
-
-    Task complete();
     boolean isCompleted();
 }
