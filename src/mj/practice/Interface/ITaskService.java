@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ITaskService {
     List<TaskDto> showAll();
-    List<TaskDto> showByCategory(TaskDto task);
+    List<TaskDto> showBy(TaskDto task);
     TaskDto create(TaskDto task);
     TaskDto update(TaskDto task);
     TaskDto delete(TaskDto task);
