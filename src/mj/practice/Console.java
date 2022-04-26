@@ -38,4 +38,18 @@ public class Console {
             }
         }
     }
+
+    private Operation getOperationInput(String command) {
+        Operation result = null;
+
+        for (Operation operation : Operation.values()) {
+            if (operation.toString().equalsIgnoreCase(command)) {
+                result = operation;
+                break;
+            }
+        }
+
+        return result;
+    }
+
 }
