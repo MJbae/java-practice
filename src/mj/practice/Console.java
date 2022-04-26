@@ -18,23 +18,18 @@ public class Console {
             while (true){
                 System.out.print("> ");
                 command = scanner.nextLine();
+                Operation operation = getOperationInput(command);
 
-                if (command.equalsIgnoreCase(LIST.toString())) {
-                    System.out.println("Listing");
-                }
-                else if (command.equalsIgnoreCase(CREATE.toString())) {
-                    System.out.println("CREATING");
-                }
-                else if (command.equalsIgnoreCase(UPDATE.toString())) {
-                    System.out.println("UPDATING");
-                }
-                else if (command.equalsIgnoreCase(REMOVE.toString())) {
-                    System.out.println("REMOVING");
-                }
-                else {
+                if (operation == null) {
                     System.out.println("Invalid Input");
                     break;
                 }
+
+                if (operation == LIST) System.out.println("Listing");
+                if (operation == CREATE) System.out.println("CREATING");
+                if (operation == UPDATE) System.out.println("UPDATING");
+                if (operation == REMOVE) System.out.println("REMOVING");
+
             }
         }
     }
