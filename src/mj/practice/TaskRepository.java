@@ -30,4 +30,23 @@ public class TaskRepository implements ITaskRepository {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
+    @Override
+    public List<Task> findAllByCategoryAndCompletedFalse(Integer categoryId) {
+        return null;
+    }
+
+    @Override
+    public Task save(Integer categoryId, Task task) {
+        return null;
+    }
+
+    @Override
+    public Task update(Integer categoryId, Task task) {
+        return null;
+    }
+
+    @Override
+    public Task delete(Integer categoryId, Task task) {
+        return null;
+    }
 }
