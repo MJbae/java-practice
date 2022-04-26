@@ -8,10 +8,13 @@ import static mj.practice.Operation.*;
 public class Console {
     public static void main(String[] args) {
         Console console = new Console();
-        console.runConsole();
+        TaskRepository repository = new TaskRepository();
+        TaskService service = new TaskService(repository);
+
+        console.runConsole(service);
     }
 
-    private void runConsole(){
+    private void runConsole(TaskService service){
         String command;
 
         try(Scanner scanner = new Scanner(System.in)){
@@ -25,7 +28,7 @@ public class Console {
                     break;
                 }
 
-                if (operation == LIST) System.out.println("Listing");
+                if (operation == LIST) System.out.println(service.showAll());
                 if (operation == CREATE) System.out.println("CREATING");
                 if (operation == UPDATE) System.out.println("UPDATING");
                 if (operation == REMOVE) System.out.println("REMOVING");
