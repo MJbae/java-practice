@@ -3,11 +3,9 @@ package mj.practice;
 import mj.practice.Interface.ITaskRepository;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class TaskRepository implements ITaskRepository {
-    Map<Integer, Category> categories = new HashMap<>();
-    Map<Integer, Task> tasks = new HashMap<>();
+    Map<Category, List<Task>> categories = new HashMap<>();
 
     TaskRepository(){
         Category personalCategory = new Category(0, "Personal");
