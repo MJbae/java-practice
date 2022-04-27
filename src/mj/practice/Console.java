@@ -6,12 +6,17 @@ import static mj.practice.Operation.*;
 
 
 public class Console {
+    TaskService service;
     public static void main(String[] args) {
-        Console console = new Console();
         TaskRepository repository = new TaskRepository();
         TaskService service = new TaskService(repository);
+        Console console = new Console(service);
 
         console.runConsole(service);
+    }
+
+    Console(TaskService service){
+        this.service = service;
     }
 
     private void runConsole(TaskService service){
