@@ -26,9 +26,15 @@ public class TaskRepository implements ITaskRepository {
 
     @Override
     public List<Task> findAllByCompletedFalse() {
-        return tasks.values().stream()
-                .filter(task -> !task.isCompleted())
-                .collect(Collectors.toCollection(ArrayList::new));
+        List<Task> result = new LinkedList<>();
+        for (List<Task> tasks : categories.values()) {
+            for(Task task : tasks){
+                if(!task.isCompleted()){
+                    result.add(task);
+                }
+            }
+        }
+        return result;
     }
 
     @Override
