@@ -10,15 +10,18 @@ public class TaskRepository implements ITaskRepository {
     TaskRepository(){
         Category personalCategory = new Category(0, "Personal");
         Category businessCategory = new Category(1, "Business");
-        categories.put(personalCategory.getId(), personalCategory);
-        categories.put(businessCategory.getId(), businessCategory);
+        categories.put(personalCategory, new LinkedList<>());
+        categories.put(businessCategory, new LinkedList<>());
 
         Task helloTask = new Task(999, "Hello");
+        helloTask.complete();
         Task worldTask = new Task(998, "World");
         Task byeTask = new Task(997, "Bye");
-        tasks.put(personalCategory.getId(), helloTask);
-        tasks.put(personalCategory.getId(), worldTask);
-        tasks.put(businessCategory.getId(), byeTask);
+        List<Task> personalCategoryTasks = categories.get(personalCategory);
+        List<Task> businessCategoryTasks = categories.get(businessCategory);
+        personalCategoryTasks.add(helloTask);
+        personalCategoryTasks.add(worldTask);
+        businessCategoryTasks.add(byeTask);
     }
 
     @Override
