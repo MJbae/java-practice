@@ -14,11 +14,12 @@ public class TaskRepository implements ITaskRepository {
     @Override
     public List<Task> findAllByCompletedFalse() {
         List<Task> result = new LinkedList<>();
-        for (List<Task> tasks : categories.values()) {
-            tasks.stream()
+
+        categories.values().stream()
+                .flatMap(Collection::stream)
                 .filter(task -> !task.isCompleted())
                 .forEach(result::add);
-        }
+
         return result;
     }
 
