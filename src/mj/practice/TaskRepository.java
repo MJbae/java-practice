@@ -26,13 +26,13 @@ public class TaskRepository implements ITaskRepository {
     @Override
     public List<Task> findAllByCategoryAndCompletedFalse(Integer categoryId) {
         List<Task> result = new LinkedList<>();
-        for (Category category : categories.keySet()) {
-            if (Objects.equals(category.getId(), categoryId)){
-                categories.get(category).stream()
+
+        categories.keySet().stream()
+                .filter(category -> Objects.equals(category.getId(), categoryId))
+                .forEach(category -> categories.get(category).stream()
                         .filter(task -> !task.isCompleted())
-                        .forEach(result::add);
-            }
-        }
+                        .forEach(result::add));
+
         return result;
     }
 
