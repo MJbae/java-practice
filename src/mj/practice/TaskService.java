@@ -18,7 +18,7 @@ public class TaskService implements ITaskService {
 
     @Override
     public List<Task> showBy(Integer categoryId) {
-        return null;
+        return taskRepository.findAllByCategoryAndCompletedFalse(categoryId);
     }
 
     @Override
