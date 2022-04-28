@@ -39,7 +39,18 @@ public class TaskRepository implements ITaskRepository {
 
     @Override
     public List<Task> findAllByCategoryAndCompletedFalse(Integer categoryId) {
-        return null;
+        List<Task> result = new LinkedList<>();
+        for (Category category : categories.keySet()) {
+            if (Objects.equals(category.getId(), categoryId)){
+                 List<Task> values = categories.get(category);
+                for(Task task : values){
+                    if(!task.isCompleted()){
+                        result.add(task);
+                    }
+                }
+            }
+        }
+        return result;
     }
 
     @Override
