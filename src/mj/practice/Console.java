@@ -20,6 +20,7 @@ public class Console {
     }
 
     private void runConsole(TaskService service){
+        Integer PERSONAL_CATEGORY_ID = 0;
         String command;
 
         try(Scanner scanner = new Scanner(System.in)){
@@ -33,10 +34,21 @@ public class Console {
                     break;
                 }
 
-                if (operation == LIST) System.out.println(service.showAll());
-                if (operation == CREATE) System.out.println("CREATING");
-                if (operation == UPDATE) System.out.println("UPDATING");
-                if (operation == REMOVE) System.out.println("REMOVING");
+                if (operation == LIST){
+                    System.out.print("List All: ");
+                    System.out.println(service.showAll());
+                    System.out.print("List Personal Category Tasks: ");
+                    System.out.println(service.showBy(PERSONAL_CATEGORY_ID));
+                }
+                if (operation == CREATE){
+                    System.out.println("CREATING");
+                }
+                if (operation == UPDATE){
+                    System.out.println("UPDATING");
+                }
+                if (operation == REMOVE){
+                    System.out.println("REMOVING");
+                }
 
             }
         }
