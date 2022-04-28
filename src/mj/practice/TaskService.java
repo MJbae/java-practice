@@ -23,7 +23,7 @@ public class TaskService implements ITaskService {
 
     @Override
     public Task create(Integer categoryId, Task task) {
-        return null;
+        return taskRepository.save(categoryId, task);
     }
 
     @Override
