@@ -41,7 +41,8 @@ public class Console {
                     System.out.println(service.showBy(PERSONAL_CATEGORY_ID));
                 }
                 if (operation == CREATE){
-                    System.out.println("CREATING");
+                    Task savedTask = service.create(PERSONAL_CATEGORY_ID, new Task(600, "Saving Test"));
+                    System.out.println("Saved Task: " + savedTask);
                 }
                 if (operation == UPDATE){
                     System.out.println("UPDATING");
