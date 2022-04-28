@@ -37,7 +37,21 @@ public class TaskRepository implements ITaskRepository {
 
     @Override
     public Task save(Integer categoryId, Task task) {
-        return null;
+        Category savingCategory = null;
+        for (Category category : categories.keySet()){
+            if(Objects.equals(category.getId(), categoryId)){
+                savingCategory = category;
+                break;
+            }
+        }
+
+        if (savingCategory == null){
+            throw new IllegalArgumentException("유효하지 않은 categoryId입니다.");
+        }
+
+        List<Task> targetTasks = categories.get(savingCategory);
+        targetTasks.add(task);
+        return task;
     }
 
     @Override
