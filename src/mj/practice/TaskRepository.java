@@ -37,7 +37,7 @@ public class TaskRepository implements ITaskRepository {
     }
 
     @Override
-    public Task save(Integer categoryId, Task task) {
+    public Task save(Integer categoryId, Task newTask) {
         Category savingCategory = null;
         for (Category category : categories.keySet()){
             if(Objects.equals(category.getId(), categoryId)){
@@ -51,8 +51,8 @@ public class TaskRepository implements ITaskRepository {
         }
 
         List<Task> targetTasks = categories.get(savingCategory);
-        targetTasks.add(task);
-        return task;
+        targetTasks.add(newTask);
+        return newTask;
     }
 
     @Override
