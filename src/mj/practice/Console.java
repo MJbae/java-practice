@@ -21,6 +21,7 @@ public class Console {
 
     private void runConsole(TaskService service){
         Integer PERSONAL_CATEGORY_ID = 0;
+        Integer SECOND_TASK_ID = 998;
         String command;
 
         try(Scanner scanner = new Scanner(System.in)){
@@ -45,7 +46,9 @@ public class Console {
                     System.out.println("Saved Task: " + savedTask);
                 }
                 if (operation == UPDATE){
-                    System.out.println("UPDATING");
+                    Task updatingTask = new Task(SECOND_TASK_ID, "Updating Test");
+                    Task updatedTask = service.update(PERSONAL_CATEGORY_ID, updatingTask);
+                    System.out.println("Updated Task: " + updatedTask);
                 }
                 if (operation == REMOVE){
                     System.out.println("REMOVING");
