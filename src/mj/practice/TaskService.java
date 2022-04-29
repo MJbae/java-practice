@@ -27,8 +27,8 @@ public class TaskService implements ITaskService {
     }
 
     @Override
-    public Task update(Integer categoryId, Task task) {
-        return null;
+    public Task update(Integer categoryId, Task newTask) {
+        return taskRepository.update(categoryId, newTask);
     }
 
     @Override
