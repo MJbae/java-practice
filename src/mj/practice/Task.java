@@ -25,6 +25,12 @@ public class Task implements ITask {
         this.content = content;
         this.completed = false;
     }
+    public void update(Task newTask){
+        setTitle(newTask.title);
+        setDate(newTask.date);
+        setTime(newTask.time);
+        setContent(newTask.content);
+    }
 
     @Override
     public void setId(int id) {
