@@ -38,19 +38,7 @@ public class TaskRepository implements ITaskRepository {
 
     @Override
     public Task save(Integer categoryId, Task newTask) {
-        Category savingCategory = null;
-        for (Category category : categories.keySet()){
-            if(Objects.equals(category.getId(), categoryId)){
-                savingCategory = category;
-                break;
-            }
-        }
-
-        if (savingCategory == null){
-            throw new IllegalArgumentException("유효하지 않은 categoryId입니다.");
-        }
-
-        List<Task> targetTasks = categories.get(savingCategory);
+        List<Task> targetTasks = getTasksByCategoryId(categoryId);
         targetTasks.add(newTask);
         return newTask;
     }
@@ -99,5 +87,21 @@ public class TaskRepository implements ITaskRepository {
         personalCategoryTasks.add(helloTask);
         personalCategoryTasks.add(worldTask);
         businessCategoryTasks.add(byeTask);
+    }
+
+    private List<Task> getTasksByCategoryId(Integer categoryId) {
+        Category targetCategory = null;
+        for (Category category : categories.keySet()){
+            if(Objects.equals(category.getId(), categoryId)){
+                targetCategory = category;
+                break;
+            }
+        }
+
+        if (targetCategory == null){
+            throw new IllegalArgumentException("유효하지 않은 categoryId 입니다.");
+        }
+
+        return categories.get(targetCategory);
     }
 }
