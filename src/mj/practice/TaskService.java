@@ -33,6 +33,6 @@ public class TaskService implements ITaskService {
 
     @Override
     public Task delete(Integer categoryId, Task task) {
-        return null;
+        return taskRepository.delete(categoryId, task);
     }
 }
