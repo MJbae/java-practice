@@ -51,7 +51,9 @@ public class Console {
                     System.out.println("Updated Task: " + updatedTask);
                 }
                 if (operation == REMOVE){
-                    System.out.println("REMOVING");
+                    Task savedTask = service.create(PERSONAL_CATEGORY_ID, new Task(600, "Saving Test"));
+                    Task deletedTask = service.delete(PERSONAL_CATEGORY_ID, savedTask);
+                    System.out.println("Deleted Task: " + deletedTask);
                 }
 
             }
