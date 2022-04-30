@@ -51,12 +51,6 @@ public class TaskRepository implements ITaskRepository {
         return updatingTask;
     }
 
-    private Task getTaskById(int updatingTaskId, List<Task> targetTasks) {
-        return targetTasks.stream()
-                .filter(task -> task.getId() == updatingTaskId)
-                .findAny().get();
-    }
-
     @Override
     public Task delete(Integer categoryId, Task task) {
         return null;
@@ -93,5 +87,11 @@ public class TaskRepository implements ITaskRepository {
         }
 
         return categories.get(targetCategory);
+    }
+
+    private Task getTaskById(int updatingTaskId, List<Task> targetTasks) {
+        return targetTasks.stream()
+                .filter(task -> task.getId() == updatingTaskId)
+                .findAny().get();
     }
 }
