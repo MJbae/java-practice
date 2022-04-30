@@ -52,8 +52,10 @@ public class TaskRepository implements ITaskRepository {
     }
 
     @Override
-    public Task delete(Integer categoryId, Task task) {
-        return null;
+    public Task delete(Integer categoryId, Task deletingTask) {
+        List<Task> targetTasks = getTasksByCategoryId(categoryId);
+        targetTasks.remove(deletingTask);
+        return deletingTask;
     }
 
     private void initialize_categories() {
