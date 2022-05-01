@@ -45,4 +45,12 @@ public class Category implements ICategory {
     public int hashCode() {
         return Objects.hash(id, title);
     }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                '}';
+    }
 }
