@@ -4,6 +4,7 @@ import mj.practice.Interface.ITask;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
 public class Task implements ITask {
     private Integer id;
@@ -90,6 +91,19 @@ public class Task implements ITask {
     @Override
     public boolean isCompleted() {
         return this.completed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return id.equals(task.id) && Objects.equals(title, task.title) && Objects.equals(date, task.date) && Objects.equals(time, task.time) && Objects.equals(content, task.content) && Objects.equals(completed, task.completed);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, date, time, content, completed);
     }
 
     @Override
